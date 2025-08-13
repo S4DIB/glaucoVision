@@ -224,9 +224,10 @@ export default function Home() {
                     type="number"
                     value={clinicalData.age}
                     onChange={(e) => handleClinicalDataChange('age', parseInt(e.target.value) || 0)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 placeholder-gray-500 bg-white"
                     min="0"
                     max="120"
+                    placeholder="Enter age"
                   />
                 </div>
                 
@@ -235,7 +236,7 @@ export default function Home() {
                   <select
                     value={clinicalData.gender}
                     onChange={(e) => handleClinicalDataChange('gender', parseInt(e.target.value))}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 bg-white"
                   >
                     <option value={0}>Male</option>
                     <option value={1}>Female</option>
@@ -249,7 +250,8 @@ export default function Home() {
                     step="0.1"
                     value={clinicalData.dioptre_1}
                     onChange={(e) => handleClinicalDataChange('dioptre_1', parseFloat(e.target.value) || 0)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 placeholder-gray-500 bg-white"
+                    placeholder="0.0"
                   />
                 </div>
                 
@@ -260,7 +262,8 @@ export default function Home() {
                     step="0.1"
                     value={clinicalData.astigmatism}
                     onChange={(e) => handleClinicalDataChange('astigmatism', parseFloat(e.target.value) || 0)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 placeholder-gray-500 bg-white"
+                    placeholder="0.0"
                   />
                 </div>
                 
@@ -269,7 +272,7 @@ export default function Home() {
                   <select
                     value={clinicalData.phakic}
                     onChange={(e) => handleClinicalDataChange('phakic', parseInt(e.target.value))}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 bg-white"
                   >
                     <option value={0}>Phakic</option>
                     <option value={1}>Pseudophakic</option>
@@ -283,7 +286,8 @@ export default function Home() {
                     step="0.1"
                     value={clinicalData.pneumatic}
                     onChange={(e) => handleClinicalDataChange('pneumatic', parseFloat(e.target.value) || 0)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full px-3 py-2 border border-gray-500 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 placeholder-gray-500 bg-white"
+                    placeholder="0.0"
                   />
                 </div>
                 
@@ -294,7 +298,8 @@ export default function Home() {
                     step="0.1"
                     value={clinicalData.perkins}
                     onChange={(e) => handleClinicalDataChange('perkins', parseFloat(e.target.value) || 0)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 placeholder-gray-500 bg-white"
+                    placeholder="0.0"
                   />
                 </div>
                 
@@ -305,7 +310,8 @@ export default function Home() {
                     step="0.1"
                     value={clinicalData.pachymetry}
                     onChange={(e) => handleClinicalDataChange('pachymetry', parseFloat(e.target.value) || 0)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 placeholder-gray-500 bg-white"
+                    placeholder="0.0"
                   />
                 </div>
                 
@@ -316,7 +322,8 @@ export default function Home() {
                     step="0.1"
                     value={clinicalData.axial_length}
                     onChange={(e) => handleClinicalDataChange('axial_length', parseFloat(e.target.value) || 0)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 placeholder-gray-500 bg-white"
+                    placeholder="0.0"
                   />
                 </div>
                 
@@ -327,7 +334,8 @@ export default function Home() {
                     step="0.1"
                     value={clinicalData.vf_md}
                     onChange={(e) => handleClinicalDataChange('vf_md', parseFloat(e.target.value) || 0)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full px-2 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 placeholder-gray-500 bg-white"
+                    placeholder="0.0"
                   />
                 </div>
               </div>

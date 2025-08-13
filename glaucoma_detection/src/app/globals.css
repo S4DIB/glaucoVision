@@ -75,3 +75,30 @@ body {
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
+/* Enhanced input field styling */
+input[type="number"],
+input[type="text"],
+select {
+  color: #111827 !important; /* text-gray-900 */
+  background-color: #ffffff !important; /* bg-white */
+}
+
+input[type="number"]::placeholder,
+input[type="text"]::placeholder {
+  color: #6b7280 !important; /* text-gray-500 */
+}
+
+/* Ensure input values are visible */
+input[type="number"]:not([value=""]),
+input[type="text"]:not([value=""]) {
+  color: #111827 !important;
+}
+
+/* Focus states */
+input[type="number"]:focus,
+input[type="text"]:focus,
+select:focus {
+  color: #111827 !important;
+  background-color: #ffffff !important;
+}

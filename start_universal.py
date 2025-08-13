@@ -35,32 +35,57 @@ def check_python_version():
 def check_node_js():
     """Check if Node.js is installed."""
     try:
-        result = subprocess.run(['node', '--version'], capture_output=True, text=True)
-        if result.returncode == 0:
-            version = result.stdout.strip()
-            print(f"✅ Node.js version: {version}")
-            return True
-        else:
+        # Try multiple ways to find node on Windows
+        node_commands = ['node', 'node.exe']
+        node_found = False
+        
+        for cmd in node_commands:
+            try:
+                result = subprocess.run([cmd, '--version'], capture_output=True, text=True, shell=True)
+                if result.returncode == 0:
+                    version = result.stdout.strip()
+                    print(f"✅ Node.js version: {version}")
+                    node_found = True
+                    break
+            except:
+                continue
+        
+        if not node_found:
             print("❌ Node.js not found!")
+            print("   Please install Node.js from: https://nodejs.org/")
             return False
-    except FileNotFoundError:
-        print("❌ Node.js not found!")
-        print("   Please install Node.js from: https://nodejs.org/")
+        
+        return True
+    except Exception as e:
+        print(f"❌ Error checking Node.js: {e}")
         return False
 
 def check_npm():
     """Check if npm is installed."""
     try:
-        result = subprocess.run(['npm', '--version'], capture_output=True, text=True)
-        if result.returncode == 0:
-            version = result.stdout.strip()
-            print(f"✅ npm version: {version}")
-            return True
-        else:
+        # Try multiple ways to find npm on Windows
+        npm_commands = ['npm', 'npm.cmd', 'npm.bat']
+        npm_found = False
+        
+        for cmd in npm_commands:
+            try:
+                result = subprocess.run([cmd, '--version'], capture_output=True, text=True, shell=True)
+                if result.returncode == 0:
+                    version = result.stdout.strip()
+                    print(f"✅ npm version: {version}")
+                    npm_found = True
+                    break
+            except:
+                continue
+        
+        if not npm_found:
             print("❌ npm not found!")
+            print("   Please ensure npm is installed and in your PATH")
             return False
-    except FileNotFoundError:
-        print("❌ npm not found!")
+        
+        return True
+    except Exception as e:
+        print(f"❌ Error checking npm: {e}")
         return False
 
 def install_python_dependencies():
@@ -99,17 +124,36 @@ def install_frontend_dependencies():
         # Change to frontend directory
         os.chdir(frontend_dir)
         
-        # Install dependencies
-        result = subprocess.run(['npm', 'install'], capture_output=True, text=True)
-        
-        if result.returncode == 0:
-            print("✅ Frontend dependencies installed successfully!")
+        # Check if node_modules already exists
+        if Path("node_modules").exists() and Path("package-lock.json").exists():
+            print("✅ Frontend dependencies already installed!")
             os.chdir("..")  # Go back to root
             return True
-        else:
-            print(f"❌ Failed to install frontend dependencies: {result.stderr}")
+        
+        print("   Installing frontend dependencies...")
+        
+        # Install dependencies - try multiple npm commands for Windows
+        npm_commands = ['npm', 'npm.cmd', 'npm.bat']
+        install_success = False
+        
+        for cmd in npm_commands:
+            try:
+                print(f"   Trying {cmd}...")
+                result = subprocess.run([cmd, 'install'], capture_output=True, text=True, shell=True)
+                if result.returncode == 0:
+                    install_success = True
+                    break
+            except:
+                continue
+        
+        if not install_success:
+            print("❌ Failed to install frontend dependencies with any npm command")
             os.chdir("..")  # Go back to root
             return False
+        
+        print("✅ Frontend dependencies installed successfully!")
+        os.chdir("..")  # Go back to root
+        return True
     except Exception as e:
         print(f"❌ Error installing frontend dependencies: {e}")
         os.chdir("..")  # Go back to root
