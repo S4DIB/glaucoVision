@@ -110,27 +110,25 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
+    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-gray-900 to-black">
       {/* Header */}
-      <header className="bg-white shadow-sm border-b border-gray-200">
+      <header className="dark-card border-b border-purple-500/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-12 h-12 purple-accent rounded-xl flex items-center justify-center purple-glow">
+                <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                 </svg>
               </div>
               <div>
-                <h1 className="text-2xl font-bold text-gray-900">Glaucoma Detection AI</h1>
-                <p className="text-sm text-gray-600">Advanced Retinal Fundus Analysis with Clinical Data Fusion</p>
+                <h1 className="text-3xl font-bold text-white">&#125; Glaucoma Detection AI</h1>
+                <p className="text-sm text-gray-300">Advanced Retinal Fundus Analysis with Clinical Data Fusion</p>
               </div>
             </div>
             <div className="hidden md:flex items-center space-x-4">
-              <div className="text-sm text-gray-500">
-                Powered by Deep Learning
-              </div>
+              {/* Header right side - can be used for future features */}
             </div>
           </div>
         </div>
@@ -142,9 +140,9 @@ export default function Home() {
           {/* Left Column - Image Upload and Clinical Data */}
           <div className="space-y-6">
             {/* Image Upload Section */}
-            <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-              <h2 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-                <svg className="w-5 h-5 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="dark-card rounded-xl p-6 dark-card-hover">
+              <h2 className="text-lg font-semibold text-white mb-4 flex items-center">
+                <svg className="w-5 h-5 mr-2 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>
                 Retinal Fundus Image
@@ -152,11 +150,11 @@ export default function Home() {
               
               <div className="space-y-4">
                 <div className="flex items-center justify-center w-full">
-                  <label className="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100 transition-colors">
+                  <label className="flex flex-col items-center justify-center w-full h-64 border-2 border-purple-500/30 border-dashed rounded-lg cursor-pointer bg-gray-900/50 hover:bg-gray-800/50 transition-colors dark-card-hover">
                     <div className="flex flex-col items-center justify-center pt-5 pb-6">
                       {selectedImage ? (
                         <div className="relative w-full h-full">
-                          <Image
+        <Image
                             src={selectedImage}
                             alt="Selected fundus image"
                             fill
@@ -165,13 +163,13 @@ export default function Home() {
                         </div>
                       ) : (
                         <>
-                          <svg className="w-8 h-8 mb-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <svg className="w-8 h-8 mb-4 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
                           </svg>
-                          <p className="mb-2 text-sm text-gray-500">
-                            <span className="font-semibold">Click to upload</span> or drag and drop
+                          <p className="mb-2 text-sm text-gray-300">
+                            <span className="font-semibold text-white">Click to upload</span> or drag and drop
                           </p>
-                          <p className="text-xs text-gray-500">PNG, JPG up to 10MB</p>
+                          <p className="text-xs text-gray-400">PNG, JPG up to 10MB</p>
                         </>
                       )}
                     </div>
@@ -188,7 +186,7 @@ export default function Home() {
                 <div className="flex space-x-3">
                   <button
                     onClick={() => fileInputRef.current?.click()}
-                    className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+                    className="flex-1 purple-accent hover:from-purple-700 hover:to-purple-800 text-white font-medium py-2 px-4 rounded-lg transition-colors purple-glow"
                   >
                     Choose Image
                   </button>
@@ -199,7 +197,7 @@ export default function Home() {
                         setPrediction(null);
                         setError(null);
                       }}
-                      className="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
+                      className="px-4 py-2 border border-purple-500/30 text-gray-300 rounded-lg hover:bg-gray-800/50 transition-colors"
                     >
                       Clear
                     </button>
@@ -209,9 +207,9 @@ export default function Home() {
             </div>
 
             {/* Clinical Data Section */}
-            <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-              <h2 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-                <svg className="w-5 h-5 mr-2 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="dark-card rounded-xl p-6 dark-card-hover">
+              <h2 className="text-lg font-semibold text-white mb-4 flex items-center">
+                <svg className="w-5 h-5 mr-2 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
                 Clinical Parameters
@@ -219,125 +217,125 @@ export default function Home() {
               
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Age</label>
+                  <label className="block text-sm font-medium text-gray-300 mb-1">Age</label>
                   <input
                     type="number"
                     value={clinicalData.age}
                     onChange={(e) => handleClinicalDataChange('age', parseInt(e.target.value) || 0)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 placeholder-gray-500 bg-white"
+                    className="w-full px-3 py-2 border border-purple-500/30 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
                     min="0"
                     max="120"
                     placeholder="Enter age"
                   />
                 </div>
                 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Gender</label>
-                  <select
-                    value={clinicalData.gender}
-                    onChange={(e) => handleClinicalDataChange('gender', parseInt(e.target.value))}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 bg-white"
-                  >
-                    <option value={0}>Male</option>
-                    <option value={1}>Female</option>
-                  </select>
-                </div>
+                                  <div>
+                    <label className="block text-sm font-medium text-gray-300 mb-1">Gender</label>
+                    <select
+                      value={clinicalData.gender}
+                      onChange={(e) => handleClinicalDataChange('gender', parseInt(e.target.value))}
+                      className="w-full px-3 py-2 border border-purple-500/30 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                    >
+                      <option value={0}>Male</option>
+                      <option value={1}>Female</option>
+                    </select>
+                  </div>
                 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Dioptre</label>
-                  <input
-                    type="number"
-                    step="0.1"
-                    value={clinicalData.dioptre_1}
-                    onChange={(e) => handleClinicalDataChange('dioptre_1', parseFloat(e.target.value) || 0)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 placeholder-gray-500 bg-white"
-                    placeholder="0.0"
-                  />
-                </div>
+                                  <div>
+                    <label className="block text-sm font-medium text-gray-300 mb-1">Dioptre</label>
+                    <input
+                      type="number"
+                      step="0.1"
+                      value={clinicalData.dioptre_1}
+                      onChange={(e) => handleClinicalDataChange('dioptre_1', parseFloat(e.target.value) || 0)}
+                      className="w-full px-3 py-2 border border-purple-500/30 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                      placeholder="0.0"
+                    />
+                  </div>
                 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Astigmatism</label>
-                  <input
-                    type="number"
-                    step="0.1"
-                    value={clinicalData.astigmatism}
-                    onChange={(e) => handleClinicalDataChange('astigmatism', parseFloat(e.target.value) || 0)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 placeholder-gray-500 bg-white"
-                    placeholder="0.0"
-                  />
-                </div>
+                                  <div>
+                    <label className="block text-sm font-medium text-gray-300 mb-1">Astigmatism</label>
+                    <input
+                      type="number"
+                      step="0.1"
+                      value={clinicalData.astigmatism}
+                      onChange={(e) => handleClinicalDataChange('astigmatism', parseFloat(e.target.value) || 0)}
+                      className="w-full px-3 py-2 border border-purple-500/30 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                      placeholder="0.0"
+                    />
+                  </div>
                 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Lens Status</label>
-                  <select
-                    value={clinicalData.phakic}
-                    onChange={(e) => handleClinicalDataChange('phakic', parseInt(e.target.value))}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 bg-white"
-                  >
-                    <option value={0}>Phakic</option>
-                    <option value={1}>Pseudophakic</option>
-                  </select>
-                </div>
+                                  <div>
+                    <label className="block text-sm font-medium text-gray-300 mb-1">Lens Status</label>
+                    <select
+                      value={clinicalData.phakic}
+                      onChange={(e) => handleClinicalDataChange('phakic', parseInt(e.target.value))}
+                      className="w-full px-3 py-2 border border-purple-500/30 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                    >
+                      <option value={0}>Phakic</option>
+                      <option value={1}>Pseudophakic</option>
+                    </select>
+                  </div>
                 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Pneumatic</label>
-                  <input
-                    type="number"
-                    step="0.1"
-                    value={clinicalData.pneumatic}
-                    onChange={(e) => handleClinicalDataChange('pneumatic', parseFloat(e.target.value) || 0)}
-                    className="w-full px-3 py-2 border border-gray-500 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 placeholder-gray-500 bg-white"
-                    placeholder="0.0"
-                  />
-                </div>
+                                  <div>
+                    <label className="block text-sm font-medium text-gray-300 mb-1">Pneumatic</label>
+                    <input
+                      type="number"
+                      step="0.1"
+                      value={clinicalData.pneumatic}
+                      onChange={(e) => handleClinicalDataChange('pneumatic', parseFloat(e.target.value) || 0)}
+                      className="w-full px-3 py-2 border border-purple-500/30 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                      placeholder="0.0"
+                    />
+                  </div>
                 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Perkins</label>
-                  <input
-                    type="number"
-                    step="0.1"
-                    value={clinicalData.perkins}
-                    onChange={(e) => handleClinicalDataChange('perkins', parseFloat(e.target.value) || 0)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 placeholder-gray-500 bg-white"
-                    placeholder="0.0"
-                  />
-                </div>
+                                  <div>
+                    <label className="block text-sm font-medium text-gray-300 mb-1">Perkins</label>
+                    <input
+                      type="number"
+                      step="0.1"
+                      value={clinicalData.perkins}
+                      onChange={(e) => handleClinicalDataChange('perkins', parseFloat(e.target.value) || 0)}
+                      className="w-full px-3 py-2 border border-purple-500/30 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                      placeholder="0.0"
+                    />
+                  </div>
                 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Pachymetry</label>
-                  <input
-                    type="number"
-                    step="0.1"
-                    value={clinicalData.pachymetry}
-                    onChange={(e) => handleClinicalDataChange('pachymetry', parseFloat(e.target.value) || 0)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 placeholder-gray-500 bg-white"
-                    placeholder="0.0"
-                  />
-                </div>
+                                  <div>
+                    <label className="block text-sm font-medium text-gray-300 mb-1">Pachymetry</label>
+                    <input
+                      type="number"
+                      step="0.1"
+                      value={clinicalData.pachymetry}
+                      onChange={(e) => handleClinicalDataChange('pachymetry', parseFloat(e.target.value) || 0)}
+                      className="w-full px-3 py-2 border border-purple-500/30 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                      placeholder="0.0"
+                    />
+                  </div>
                 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Axial Length</label>
-                  <input
-                    type="number"
-                    step="0.1"
-                    value={clinicalData.axial_length}
-                    onChange={(e) => handleClinicalDataChange('axial_length', parseFloat(e.target.value) || 0)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 placeholder-gray-500 bg-white"
-                    placeholder="0.0"
-                  />
-                </div>
+                                  <div>
+                    <label className="block text-sm font-medium text-gray-300 mb-1">Axial Length</label>
+                    <input
+                      type="number"
+                      step="0.1"
+                      value={clinicalData.axial_length}
+                      onChange={(e) => handleClinicalDataChange('axial_length', parseFloat(e.target.value) || 0)}
+                      className="w-full px-3 py-2 border border-purple-500/30 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                      placeholder="0.0"
+                    />
+                  </div>
                 
-                <div className="col-span-2">
-                  <label className="block text-sm font-medium text-gray-700 mb-1">VF_MD</label>
-                  <input
-                    type="number"
-                    step="0.1"
-                    value={clinicalData.vf_md}
-                    onChange={(e) => handleClinicalDataChange('vf_md', parseFloat(e.target.value) || 0)}
-                    className="w-full px-2 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 placeholder-gray-500 bg-white"
-                    placeholder="0.0"
-                  />
-                </div>
+                                  <div className="col-span-2">
+                    <label className="block text-sm font-medium text-gray-300 mb-1">VF_MD</label>
+                    <input
+                      type="number"
+                      step="0.1"
+                      value={clinicalData.vf_md}
+                      onChange={(e) => handleClinicalDataChange('vf_md', parseFloat(e.target.value) || 0)}
+                      className="w-full px-2 py-2 border border-purple-500/30 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                      placeholder="0.0"
+                    />
+                  </div>
               </div>
             </div>
 
@@ -345,7 +343,7 @@ export default function Home() {
             <button
               onClick={handleSubmit}
               disabled={!selectedImage || isLoading}
-              className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 disabled:from-gray-400 disabled:to-gray-500 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-200 transform hover:scale-105 disabled:transform-none disabled:cursor-not-allowed shadow-lg"
+              className="w-full purple-accent hover:from-purple-700 hover:to-purple-800 disabled:from-gray-600 disabled:to-gray-700 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-200 transform hover:scale-105 disabled:transform-none disabled:cursor-not-allowed purple-glow"
             >
               {isLoading ? (
                 <div className="flex items-center justify-center">
@@ -365,14 +363,14 @@ export default function Home() {
           <div className="space-y-6">
             {/* Error Display */}
             {error && (
-              <div className="bg-red-50 border border-red-200 rounded-xl p-6">
+              <div className="dark-card border border-red-500/30 rounded-xl p-6">
                 <div className="flex items-center">
                   <svg className="w-5 h-5 text-red-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                   <div>
-                    <h3 className="text-sm font-medium text-red-800">Error</h3>
-                    <p className="text-sm text-red-700 mt-1">{error}</p>
+                    <h3 className="text-sm font-medium text-red-400">Error</h3>
+                    <p className="text-sm text-red-300 mt-1">{error}</p>
                   </div>
                 </div>
               </div>
@@ -463,23 +461,23 @@ export default function Home() {
 
             {/* Info Panel */}
             {!prediction && !error && (
-              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl border border-blue-200 p-6">
-                <h3 className="text-lg font-semibold text-blue-900 mb-3">How It Works</h3>
-                <div className="space-y-3 text-sm text-blue-800">
+              <div className="dark-card rounded-xl border border-purple-500/20 p-6">
+                <h3 className="text-lg font-semibold text-white mb-3">How It Works</h3>
+                <div className="space-y-3 text-sm text-gray-300">
                   <div className="flex items-start">
-                    <div className="w-6 h-6 bg-blue-200 rounded-full flex items-center justify-center text-blue-700 text-xs font-medium mr-3 mt-0.5">1</div>
+                    <div className="w-6 h-6 purple-accent rounded-full flex items-center justify-center text-white text-xs font-medium mr-3 mt-0.5">1</div>
                     <p>Upload a high-quality retinal fundus image</p>
                   </div>
                   <div className="flex items-start">
-                    <div className="w-6 h-6 bg-blue-200 rounded-full flex items-center justify-center text-blue-700 text-xs font-medium mr-3 mt-0.5">2</div>
+                    <div className="w-6 h-6 purple-accent rounded-full flex items-center justify-center text-white text-xs font-medium mr-3 mt-0.5">2</div>
                     <p>Fill in the clinical parameters for comprehensive analysis</p>
                   </div>
                   <div className="flex items-start">
-                    <div className="w-6 h-6 bg-blue-200 rounded-full flex items-center justify-center text-blue-700 text-xs font-medium mr-3 mt-0.5">3</div>
+                    <div className="w-6 h-6 purple-accent rounded-full flex items-center justify-center text-white text-xs font-medium mr-3 mt-0.5">3</div>
                     <p>Our AI analyzes the image and clinical data using advanced deep learning</p>
                   </div>
                   <div className="flex items-start">
-                    <div className="w-6 h-6 bg-blue-200 rounded-full flex items-center justify-center text-blue-700 text-xs font-medium mr-3 mt-0.5">4</div>
+                    <div className="w-6 h-6 purple-accent rounded-full flex items-center justify-center text-white text-xs font-medium mr-3 mt-0.5">4</div>
                     <p>Receive detailed diagnosis with confidence scores and recommendations</p>
                   </div>
                 </div>
@@ -490,9 +488,9 @@ export default function Home() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-white border-t border-gray-200 mt-16">
+      <footer className="dark-card border-t border-purple-500/20 mt-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="text-center text-sm text-gray-500">
+          <div className="text-center text-sm text-gray-400">
             <p>© 2024 Glaucoma Detection AI. Advanced retinal analysis powered by deep learning.</p>
             <p className="mt-1">This tool is for research and educational purposes. Always consult healthcare professionals for medical decisions.</p>
           </div>
